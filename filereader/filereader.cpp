@@ -6,7 +6,9 @@
 int main()
 {
     std::vector<std::vector<std::string>> fv = buildVectorFromFile("text.txt");
-    printVectorOfVector(fv);
+    wordMap map = buildTextMap(fv);
+    // printVectorOfVector(fv);
+    printTextMap(map);
     return 0;
 }
 std::vector<std::vector<std::string>> buildVectorFromFile(std::string filename)
@@ -29,12 +31,13 @@ std::vector<std::vector<std::string>> buildVectorFromFile(std::string filename)
             filevec.push_back(linevec);
         }
         myfile.close(); // Close the file when done
-        return filevec;
+        // return filevec;
     }
     else
     {
         std::cout << "Couldn't open file\n";
     }
+    return filevec;
 }
 void printVectorOfVector(const std::vector<std::vector<std::string>> &data)
 {
@@ -56,4 +59,31 @@ void printVectorOfVector(const std::vector<std::vector<std::string>> &data)
         std::cout << "%"; // Move to the next row
     }
     std::cout << std::endl;
+}
+
+void printTextMap(const wordMap &wm)
+{
+    std::cout << wm.counter << std::endl;
+    for (const auto &pair : wm.map)
+    {
+        std::cout << pair.first << " : " << pair.second << std::endl;
+    }
+}
+
+wordMap buildTextMap(const std::vector<std::vector<std::string>> &data)
+{
+    std::unordered_map<std::string, int> textMap;
+    int counter = 0;
+    for (const auto &row : data)
+    {
+        for (const std::string &item : row)
+        {
+            if (!(textMap.find(item) != textMap.end()))
+            {
+                textMap[item] = counter;
+                counter++;
+            }
+        }
+    }
+    return wordMap(textMap, counter);
 }
