@@ -7,6 +7,9 @@ class uwordmap
 {
 public:
     void print();
+    void serialize(std::ostream &outStream);
+    void deserialize(std::istream &inStream);
+
     uwordmap(vectoredTxt &ft, int ct) : counter(ct)
     {
         std::vector<std::vector<std::string>> rft = ft.getFt();
@@ -23,6 +26,11 @@ public:
             }
         }
     };
+
+    uwordmap(std::istream &inStream)
+    {
+        deserialize(inStream);
+    }
 
     uwordmap()
     {

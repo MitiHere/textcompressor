@@ -11,11 +11,18 @@ public:
     {
         wm = uwordmap(vt, WM_MIN_COUNTER);
     };
+    uwordmap getWm()
+    {
+        return wm;
+    }
+    vectoredTxt getVt()
+    {
+        return vt;
+    };
 
 private:
     uwordmap wm;
     vectoredTxt vt;
-
     const int WM_START = 1;
     const int WM_END = 2;
     const int TXT_START = 3;
