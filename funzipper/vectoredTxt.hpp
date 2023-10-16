@@ -6,6 +6,7 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+
 class vectoredTxt
 {
 public:
@@ -34,8 +35,11 @@ public:
         {
             std::cout << "Couldn't open file\n";
         }
-    }
+    };
     void print();
+    vectoredTxt(std::vector<std::vector<std::string>> vector) : ft(vector){};
+
+    vectoredTxt();
 
 protected:
     std::vector<std::vector<std::string>> ft;

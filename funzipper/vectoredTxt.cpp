@@ -25,3 +25,8 @@ std::vector<std::vector<std::string>> vectoredTxt::getFt()
 {
     return ft;
 };
+
+vectoredTxt::vectoredTxt()
+{
+    ft = std::vector<std::vector<std::string>>();
+};

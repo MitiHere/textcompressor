@@ -2,7 +2,7 @@
 
 # Compiler and flags
 CXX = g++
-CXXFLAGS = -std=c++11
+CXXFLAGS = -std=c++11 -Wall 
 
 # Source files
 SRCS = main.cpp ../funzipper/funzipper.cpp  ../funzipper/vectoredTxt.cpp ../funzipper/uwordmap.cpp

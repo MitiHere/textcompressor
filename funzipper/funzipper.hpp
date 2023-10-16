@@ -20,13 +20,20 @@ public:
         return vt;
     };
     std::vector<std::vector<int>> buildVectoredInt();
+    void serialize(std::ostream &outStream);
+    void deserialize(std::istream &inStream);
+    void buildFromVectoredInt(std::vector<std::vector<int>> &vint);
+    void saveToFile(std::string filename);
+    void readFromFile(std::string filename);
+    funzipper(std::istream &inStream)
+    {
+        deserialize(inStream);
+    };
+    funzipper(){};
 
-    // void serialize(std::ostream &outStream);
-    // void deserialize(std::istream &inStream);
 private:
     uwordmap wm;
     vectoredTxt vt;
-    const int TXT_NTER = 1;
-    const int WM_MIN_COUNTER = 2;
+    const int WM_MIN_COUNTER = 1;
 };
 #endif

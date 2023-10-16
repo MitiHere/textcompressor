@@ -43,6 +43,15 @@ public:
     {
         return map[str];
     }
+    std::unordered_map<int, std::string> flip()
+    {
+        std::unordered_map<int, std::string> flippedMap;
+        for (const auto &entry : map)
+        {
+            flippedMap[entry.second] = entry.first;
+        }
+        return flippedMap;
+    };
 
 private:
     std::unordered_map<std::string, int> map;

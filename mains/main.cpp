@@ -19,10 +19,32 @@ void testHaldSer()
     uwordmap uw = fz.getWm();
     std::vector<std::vector<int>> aa = fz.buildVectoredInt();
 }
+
+void testFullSerialize()
+{
+    funzipper fz = funzipper("text.txt");
+    std::stringstream ss;
+    fz.serialize(ss);
+    fz.print();
+
+    funzipper newz = funzipper(ss);
+    newz.print();
+}
+
+void testWithFile()
+{
+    funzipper fz = funzipper("text.txt");
+    fz.saveToFile("data.fz");
+    fz.print();
+
+    funzipper newfz = funzipper();
+    newfz.readFromFile("data.fz");
+    fz.print();
+}
 int main()
 {
     /*funzipper fz = funzipper("text.txt");
     fz.print();*/
-    testHaldSer();
+    testWithFile();
     return 0;
 }
