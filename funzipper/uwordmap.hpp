@@ -7,7 +7,7 @@ class uwordmap
 {
 public:
     void print();
-    uwordmap(vectoredTxt &ft)
+    uwordmap(vectoredTxt &ft, int ct) : counter(ct)
     {
         std::vector<std::vector<std::string>> rft = ft.getFt();
         std::unordered_map<std::string, int> textMap;
@@ -31,6 +31,6 @@ public:
 
 private:
     std::unordered_map<std::string, int> map;
-    int counter = 0;
+    int counter;
 };
 #endif
