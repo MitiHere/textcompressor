@@ -1,17 +1,17 @@
 #include "uwordmap.hpp"
 #include <iostream>
 
-int calculateValueSize(int &maxValue)
+int uwordmap::getCounterSize()
 {
-    if (maxValue <= 0xFF)
+    if (counter <= 0xFF)
     {
         return 1; // 1 byte for values up to 255
     }
-    else if (maxValue <= 0xFFFF)
+    else if (counter <= 0xFFFF)
     {
         return 2; // 2 bytes for values up to 65535
     }
-    else if (maxValue <= 0xFFFFFF)
+    else if (counter <= 0xFFFFFF)
     {
         return 3; // 3 bytes for values up to 16777215
     }
@@ -32,7 +32,7 @@ void uwordmap::print()
 
 void uwordmap::serialize(std::ostream &outStream)
 {
-    int size = calculateValueSize(counter);
+    int size = getCounterSize();
     outStream.write(reinterpret_cast<const char *>(&size), sizeof(int)); // write the byte num needed to store the int
     outStream.write(reinterpret_cast<const char *>(&counter), size);     // write the byte num needed to store the int
 

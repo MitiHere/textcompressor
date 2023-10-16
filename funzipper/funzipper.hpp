@@ -14,19 +14,19 @@ public:
     uwordmap getWm()
     {
         return wm;
-    }
+    };
     vectoredTxt getVt()
     {
         return vt;
     };
+    std::vector<std::vector<int>> buildVectoredInt();
 
+    // void serialize(std::ostream &outStream);
+    // void deserialize(std::istream &inStream);
 private:
     uwordmap wm;
     vectoredTxt vt;
-    const int WM_START = 1;
-    const int WM_END = 2;
-    const int TXT_START = 3;
-    const int TXT_END = 4;
-    const int WM_MIN_COUNTER = 5;
+    const int TXT_NTER = 1;
+    const int WM_MIN_COUNTER = 2;
 };
 #endif

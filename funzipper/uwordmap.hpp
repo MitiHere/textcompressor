@@ -3,6 +3,7 @@
 #include <string>
 #include <unordered_map>
 #include "vectoredTxt.hpp"
+
 class uwordmap
 {
 public:
@@ -25,16 +26,22 @@ public:
                 }
             }
         }
-    };
+    }
 
     uwordmap(std::istream &inStream)
     {
+        counter = 0;
         deserialize(inStream);
-    }
+    };
 
     uwordmap()
     {
         map = std::unordered_map<std::string, int>();
+    };
+    int getCounterSize();
+    int at(std::string str)
+    {
+        return map[str];
     }
 
 private:

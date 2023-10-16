@@ -5,7 +5,7 @@ CXX = g++
 CXXFLAGS = -std=c++11
 
 # Source files
-SRCS = main.cpp ../funzipper/funzipper.cpp ../funzipper/uwordmap.cpp ../funzipper/vectoredTxt.cpp 
+SRCS = main.cpp ../funzipper/funzipper.cpp  ../funzipper/vectoredTxt.cpp ../funzipper/uwordmap.cpp
 
 # Object files directory
 OBJ_DIR = ../build/obj/

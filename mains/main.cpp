@@ -13,9 +13,16 @@ void testSerializeWm()
     newMap.print(); // Assuming you have a print function in your class
 }
 
-int main()
+void testHaldSer()
 {
     funzipper fz = funzipper("text.txt");
-    fz.print();
+    uwordmap uw = fz.getWm();
+    std::vector<std::vector<int>> aa = fz.buildVectoredInt();
+}
+int main()
+{
+    /*funzipper fz = funzipper("text.txt");
+    fz.print();*/
+    testHaldSer();
     return 0;
 }
