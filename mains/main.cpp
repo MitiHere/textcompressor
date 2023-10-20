@@ -31,22 +31,32 @@ void testFullSerialize()
     newz.print();
 }
 
-void testWithFile()
+void constitution()
 {
-    funzipper fz = funzipper("text.txt");
-    fz.saveToFile("data.fz");
+    funzipper fz = funzipper("constitution.txt");
+    fz.saveToFile("constitution.fz");
+}
+void tartuffe()
+{
+    funzipper fz = funzipper("tartuffe.txt");
+    fz.saveToFile("tartuffe.fz");
     // fz.print();
 
     funzipper newfz = funzipper();
-    newfz.readFromFile("data.fz");
-    // fz.print();
-    fz.getWm().getCounterSize();
+    newfz.readFromFile("tartuffe.fz");
     std::cout << fz.getWm().getCounterSize() << std::endl;
+}
+void miserable()
+{
+    funzipper fz = funzipper("miserable.txt");
+    fz.saveToFile("miserable.fz");
 }
 int main()
 {
     /*funzipper fz = funzipper("text.txt");
     fz.print();*/
-    testWithFile();
+    constitution();
+    tartuffe();
+    miserable();
     return 0;
 }
