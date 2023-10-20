@@ -35,11 +35,13 @@ void testWithFile()
 {
     funzipper fz = funzipper("text.txt");
     fz.saveToFile("data.fz");
-    fz.print();
+    // fz.print();
 
     funzipper newfz = funzipper();
     newfz.readFromFile("data.fz");
-    fz.print();
+    // fz.print();
+    fz.getWm().getCounterSize();
+    std::cout << fz.getWm().getCounterSize() << std::endl;
 }
 int main()
 {
