@@ -22,7 +22,7 @@ void testHaldSer()
 
 void testFullSerialize()
 {
-    funzipper fz = funzipper("text.txt");
+    funzipper fz = funzipper("tartuffe.txt");
     std::stringstream ss;
     fz.serialize(ss);
     fz.print();
@@ -51,12 +51,23 @@ void miserable()
     funzipper fz = funzipper("miserable.txt");
     fz.saveToFile("miserable.fz");
 }
+void test()
+{
+    funzipper fz = funzipper("miserable.txt");
+    fz.saveToFile("miserable.fz");
+
+    funzipper newfz = funzipper();
+    newfz.readFromFile("miserable.fz");
+    newfz.exportToTxt("miserable2.txt");
+}
 int main()
 {
     /*funzipper fz = funzipper("text.txt");
     fz.print();*/
+    std::cout << "size of sizeT " << sizeof(char) << std::endl;
     constitution();
     tartuffe();
     miserable();
+    test();
     return 0;
 }

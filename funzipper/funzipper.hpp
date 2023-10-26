@@ -25,6 +25,7 @@ public:
     void buildFromVectoredInt(std::vector<std::vector<int>> &vint);
     void saveToFile(std::string filename);
     void readFromFile(std::string filename);
+    void exportToTxt(std::string filename);
     funzipper(std::istream &inStream)
     {
         deserialize(inStream);

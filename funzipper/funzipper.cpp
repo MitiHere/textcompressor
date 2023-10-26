@@ -111,3 +111,22 @@ void funzipper::readFromFile(std::string filename)
         std::cerr << "Error: Could not open the file for reading." << std::endl;
     }
 }
+void funzipper::exportToTxt(std::string filename)
+{
+    std::ofstream output_file(filename);
+
+    if (output_file.is_open())
+    {
+        // Iterate through the vector of vectors and write each line to the file
+        for (const std::vector<std::string> &line : vt.getFt())
+        {
+            for (const std::string &word : line)
+            {
+                output_file << word << " "; // Write each word separated by a space
+            }
+            output_file << "\n"; // Write a newline to separate lines
+        }
+        // Close the file stream
+        output_file.close();
+    }
+}

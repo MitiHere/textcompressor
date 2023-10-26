@@ -30,4 +30,4 @@ clean:
 	rm -f $(OBJS) $(TARGET)
 	
 run: 
-	./$(TARGET)
+	./$(TARGET);ls -la

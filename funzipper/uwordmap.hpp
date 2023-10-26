@@ -23,6 +23,10 @@ public:
                 {
                     this->map[item] = this->counter;
                     this->counter++;
+                    if (item.size() > counter)
+                    {
+                        maxStrSize = item.size();
+                    }
                 }
             }
         }
@@ -52,9 +56,11 @@ public:
         }
         return flippedMap;
     };
+    int getStrSize();
 
 private:
     std::unordered_map<std::string, int> map;
     int counter;
+    int maxStrSize = 0;
 };
 #endif
