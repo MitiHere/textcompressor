@@ -2,36 +2,22 @@
 
 A weird text compressing project
 
-## Concept
+This project came from a random shower thought, i wanted to do a project in C++ involving streams and serialisation.
+I wanted to play around with the possibility of serialising data but only using the bits necessary to store data.
+And i thought about doing this to compress data.
+I wanted to only work with what i could think of. 
+So i decided to work with redundant words, and to do lossless compression.
 
-The idea is to create a fun compressing project, with first a fun approach to it with a dumb idea
+While reading the text, each word (For this project, a word is surrounded by space) is checked if in the dictionnary, and if not insert it in. After the word is in the dictionnary, it inserts his id (an integer) as the place of the word into the new file.
 
-### Idea 1 : Funzipper
+After it finished interating through the file, it creates a compressed version of the text, with first the dictionnary, with the id's only using the number of bytes needed to store the max sized int.
 
-To compress a text file a custom way, when you read a file there are some repeated words, and if you compress the data with only one instances of each word, and a map bewteen this and some binary with a variable size depending on the number of different words.
-And after have a new file format a .funzip.
+This concept is really primitive and was more a way for me to have an idea and make it in C++.
+It is not really performant, and there is a lot of possible things i could do to improve the performance.
+But on some text with a lot of redundant words, it succeeds in it's goal of saving memory space.
 
-#### .funzip :
+You can run this project, by going into the mains directory, and running 'make', it will compile the c++ and run the compressor on three texts, the french constitution (2023), the miserable script and the tartuffe script.
 
-at the end of the file you have a dictionnary section with a binary representation of the map between words and binary, and at the start of the file the text data until the dictionnary section.
+I also created a python script to know if the compressor will be worth it on a provided text file. But for now it does not work as intended.
 
-You have some places Tag to know where you are :
-
-- TEXT_START
-- TEXT_END
-- DIC_START
-- DIC_END
-
-and a tag for a \n :
-
-- BACKSPACE
-
-The spaces are not coded, and the words with apostrophes in them are counted as an individual file
-
-### Idea 2 : Funzipper Comparator
-
-A tool to know how much data you will save doing this compressor
-
-## Programming Languages
-
-The goal is to do the Funzipper in C++ for performances, and also for c++ training, and the Funzipper Comparator in a Web Service Friendly way, maybe c++ that compiles into WASM, but maybe python or javascript if i'm lazy.
+I think the project is at it's end. But some thing i want to add is a CLI, so you can call 'funzip file.txt' and 'funzip -d file.txt' to compress a file and decompress an archive, and maybe a CLI to know how much bytes will be saved if you use this program.
